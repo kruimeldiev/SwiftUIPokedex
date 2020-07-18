@@ -13,6 +13,10 @@
 		AF28844724C36D4F00FB48C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF28844624C36D4F00FB48C8 /* Assets.xcassets */; };
 		AF28844A24C36D4F00FB48C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF28844924C36D4F00FB48C8 /* Preview Assets.xcassets */; };
 		AF28844D24C36D4F00FB48C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF28844B24C36D4F00FB48C8 /* LaunchScreen.storyboard */; };
+		AF28845824C373AA00FB48C8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28845724C373AA00FB48C8 /* ViewModel.swift */; };
+		AF28845A24C373E300FB48C8 /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28845924C373E300FB48C8 /* PokemonModel.swift */; };
+		AF28845C24C376B300FB48C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28845B24C376B300FB48C8 /* Constants.swift */; };
+		AF28845E24C3772300FB48C8 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28845D24C3772300FB48C8 /* NetworkingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		AF28844924C36D4F00FB48C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF28844C24C36D4F00FB48C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF28844E24C36D4F00FB48C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF28845724C373AA00FB48C8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		AF28845924C373E300FB48C8 /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
+		AF28845B24C376B300FB48C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AF28845D24C3772300FB48C8 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +64,11 @@
 		AF28843F24C36D4E00FB48C8 /* SwiftUI Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				AF28845624C3737800FB48C8 /* ViewModel */,
+				AF28845524C3736E00FB48C8 /* Model */,
+				AF28845424C3736800FB48C8 /* View */,
 				AF28844024C36D4E00FB48C8 /* AppDelegate.swift */,
 				AF28844224C36D4E00FB48C8 /* SceneDelegate.swift */,
-				AF28844424C36D4E00FB48C8 /* ContentView.swift */,
 				AF28844624C36D4F00FB48C8 /* Assets.xcassets */,
 				AF28844B24C36D4F00FB48C8 /* LaunchScreen.storyboard */,
 				AF28844E24C36D4F00FB48C8 /* Info.plist */,
@@ -73,6 +83,32 @@
 				AF28844924C36D4F00FB48C8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF28845424C3736800FB48C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF28844424C36D4E00FB48C8 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF28845524C3736E00FB48C8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF28845924C373E300FB48C8 /* PokemonModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF28845624C3737800FB48C8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF28845724C373AA00FB48C8 /* ViewModel.swift */,
+				AF28845B24C376B300FB48C8 /* Constants.swift */,
+				AF28845D24C3772300FB48C8 /* NetworkingManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF28844124C36D4E00FB48C8 /* AppDelegate.swift in Sources */,
+				AF28845C24C376B300FB48C8 /* Constants.swift in Sources */,
 				AF28844324C36D4E00FB48C8 /* SceneDelegate.swift in Sources */,
+				AF28845A24C373E300FB48C8 /* PokemonModel.swift in Sources */,
+				AF28845824C373AA00FB48C8 /* ViewModel.swift in Sources */,
 				AF28844524C36D4E00FB48C8 /* ContentView.swift in Sources */,
+				AF28845E24C3772300FB48C8 /* NetworkingManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

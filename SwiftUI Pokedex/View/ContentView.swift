@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var viewModel = ViewModel()
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack(spacing: 5) {
+            
+            Button(action: {
+                print(self.viewModel.volledigePokedex)
+            }) {Text("Print")}
+            
+        }.onAppear {
+            self.viewModel.volledigePokedexLaden()
+        }
+        
     }
 }
 
