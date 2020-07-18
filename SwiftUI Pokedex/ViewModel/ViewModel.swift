@@ -12,8 +12,14 @@ class ViewModel: ObservableObject {
     
     @Published var netwokringManager = NetworkingManager()
     
-    @Published var volledigePokedex: Pokedex?
-    @Published var pokedexArray: [PokemonResult]?
+    @Published var volledigePokedex: Pokedex
+    @Published var pokedexArray: [PokemonResult]
+    
+    init() {
+        volledigePokedex = Pokedex(results: [])
+        pokedexArray = [PokemonResult(name: "default", url: "default")]
+        volledigePokedexLaden()
+    }
     
     func volledigePokedexLaden() {
         
@@ -22,7 +28,7 @@ class ViewModel: ObservableObject {
             self.volledigePokedex = Pokedex
             
             // De data van de volledigePokedex wordt als Array opgeslagen in de pokedexArray
-            self.pokedexArray = self.volledigePokedex?.results
+            self.pokedexArray = self.volledigePokedex.results
         })
     }
     
