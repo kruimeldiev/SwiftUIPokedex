@@ -10,19 +10,24 @@ import SwiftUI
 
 struct PokemonCardView: View {
     
+    @ObservedObject var viewModel = ViewModel()
+    
     var pokemonNaam: String
     var pokemonID: Int
     
     var body: some View {
         HStack {
-            Text("\(pokemonID)")
+            Text("\(pokemonID).")
             Text(pokemonNaam)
+            Spacer()
+            SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png")
+                .frame(width: 50, height: 50)
         }
     }
 }
 
 struct PokemonCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCardView(pokemonNaam: "default", pokemonID: 0)
+        PokemonCardView(pokemonNaam: "default", pokemonID: 1)
     }
 }

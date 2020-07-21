@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 struct NetworkingManager {
     
@@ -47,7 +49,28 @@ struct NetworkingManager {
         
         // Hier roep je de dataTask aan
         dataTask.resume()
+    }
+    
+    func getSprite(url: String, completion: @escaping(UIImage) -> ()) {
         
+        guard let spriteURL = URL(string: url) else {
+            print("Sprite URL niet beschikbaar")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: spriteURL) { data, _, error in
+            
+            if error == nil && data != nil {
+                guard let spriteImage = data else {
+                    print("Data (URL) kan niet worden omgezet naar Sprite")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    completion(UIImage(data: spriteImage)!)
+                }
+            }
+        }.resume()
     }
     
 }
