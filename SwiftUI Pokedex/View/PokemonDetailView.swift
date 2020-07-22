@@ -25,6 +25,11 @@ struct PokemonDetailView: View {
             ForEach(0..<self.weergegevenPokemon.types.count, id: \.self) { type in
                 TypeView(type: self.weergegevenPokemon.types[type].type)
             }
+            VStack(alignment: .leading) {
+                ForEach(0..<self.weergegevenPokemon.stats.count, id: \.self) { stat in
+                    StatView(stat: self.weergegevenPokemon.stats[stat])
+                }
+            }
         }.onAppear {
                 self.viewModel.netwokringManager.getSpecifiekePokemon(url: self.pokemonURL) { (Pokemon) in
                     self.weergegevenPokemon = Pokemon
@@ -35,6 +40,6 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(pokemonURL: "default", weergegevenPokemon: Pokemon(height: 0, id: 0, name: "default", sprites: Sprite(front_default: "default"),types: [], weight: 0))
+        PokemonDetailView(pokemonURL: "default", weergegevenPokemon: Pokemon(height: 0, id: 0, name: "default", sprites: Sprite(front_default: "default"), stats: [], types: [], weight: 0))
     }
 }
