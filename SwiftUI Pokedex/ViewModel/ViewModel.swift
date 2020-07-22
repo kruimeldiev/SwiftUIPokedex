@@ -13,11 +13,11 @@ class ViewModel: ObservableObject {
     @Published var netwokringManager = NetworkingManager()
     
     @Published var volledigePokedex: Pokedex
-    @Published var pokedexArray: [PokemonResult]
+    @Published var pokedexArray: [PokemonURL]
     
     init() {
         volledigePokedex = Pokedex(results: [])
-        pokedexArray = [PokemonResult(name: "default", url: "default")]
+        pokedexArray = [PokemonURL(name: "default", url: "default")]
         volledigePokedexLaden()
     }
     

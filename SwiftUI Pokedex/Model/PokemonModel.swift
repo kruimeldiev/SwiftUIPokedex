@@ -9,10 +9,10 @@
 import Foundation
 
 struct Pokedex: Decodable {
-    var results: [PokemonResult]
+    var results: [PokemonURL]
 }
 
-struct PokemonResult: Decodable {
+struct PokemonURL: Decodable {
     var name: String
     var url: String
 }
@@ -24,10 +24,19 @@ struct Pokemon: Decodable {
     var name: String
     var sprites: Sprite
     //var stats: []
-    //var types: []
+    var types: [Types]
     var weight: Int
 }
 
 struct Sprite: Decodable {
     var front_default: String
+}
+
+struct Types: Decodable {
+    var type: Type
+}
+
+struct Type: Decodable {
+    var name: String
+    var url: String
 }

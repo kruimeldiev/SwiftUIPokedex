@@ -25,7 +25,7 @@ struct NetworkingManager {
         // URLSession is een klasse die data kan downloaden of uploaden via een gegeven URL
         // De .shared klasse zorgt dat data uit de URL wordt gedownload
         // De .dataTask klasse haalt data uit de URLSessie op en plaatst deze in 'data'
-        let dataTask = URLSession.shared.dataTask(with: url) {data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: url) {data, _, error in
             
             // Eerst zorgen voor error handeling
             if error == nil && data != nil {
@@ -42,7 +42,7 @@ struct NetworkingManager {
                         completion(pokedex)
                     }
                 } catch {
-                    print("Error tijdens JSON parsing")
+                    print("Error tijdens Pokedex JSON parsing")
                 }
             }
         }
@@ -51,26 +51,26 @@ struct NetworkingManager {
         dataTask.resume()
     }
     
-    func getSprite(url: String, completion: @escaping(UIImage) -> ()) {
+    func getSpecifiekePokemon(url: String, completion: @escaping(Pokemon) -> ()) {
         
-        guard let spriteURL = URL(string: url) else {
-            print("Sprite URL niet beschikbaar")
+        guard let url = URL(string: url) else {
+            print("Pokemon URL is niet beschikbaar")
             return
         }
         
-        URLSession.shared.dataTask(with: spriteURL) { data, _, error in
-            
+        let dataTask = URLSession.shared.dataTask(with: url) {data, _, error in
             if error == nil && data != nil {
-                guard let spriteImage = data else {
-                    print("Data (URL) kan niet worden omgezet naar Sprite")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    completion(UIImage(data: spriteImage)!)
+                do {
+                    let pokemon = try JSONDecoder().decode(Pokemon.self, from: data!)
+                    DispatchQueue.main.async {
+                        completion(pokemon)
+                    }
+                } catch {
+                    print("Error tijdens Pokemon JSON parsing")
                 }
             }
-        }.resume()
+        }
+        dataTask.resume()
     }
     
 }
