@@ -18,7 +18,7 @@ struct PokemonURL: Decodable {
 }
 
 struct Pokemon: Decodable {
-    //var abilities: []
+    var abilities: [Ability]
     var height: Int
     var id: Int
     var name: String

@@ -12,7 +12,7 @@ struct PokemonDetailView: View {
     
     @ObservedObject var viewModel = ViewModel()
     
-    @State var pokemonURL: String
+    var pokemonURL: String
     @State var weergegevenPokemon: Pokemon
     
     var body: some View {
@@ -30,6 +30,11 @@ struct PokemonDetailView: View {
                     StatView(stat: self.weergegevenPokemon.stats[stat])
                 }
             }
+            VStack {
+                ForEach(0..<self.weergegevenPokemon.abilities.count, id: \.self) { ability in
+                    AbilityView(abilityURL: self.weergegevenPokemon.abilities[ability].ability.url, weergegevenAbility: AbilityDetail(name: "default", flavor_text_entries: [Flavor_Text(flavor_text: "default")]))
+                }
+            }
         }.onAppear {
                 self.viewModel.netwokringManager.getSpecifiekePokemon(url: self.pokemonURL) { (Pokemon) in
                     self.weergegevenPokemon = Pokemon
@@ -40,6 +45,6 @@ struct PokemonDetailView: View {
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(pokemonURL: "default", weergegevenPokemon: Pokemon(height: 0, id: 0, name: "default", sprites: Sprite(front_default: "default"), stats: [], types: [], weight: 0))
+        PokemonDetailView(pokemonURL: "default", weergegevenPokemon: Pokemon(abilities: [], height: 0, id: 0, name: "default", sprites: Sprite(front_default: "default"), stats: [], types: [], weight: 0))
     }
 }

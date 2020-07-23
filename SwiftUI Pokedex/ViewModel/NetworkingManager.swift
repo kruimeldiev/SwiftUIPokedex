@@ -73,4 +73,26 @@ struct NetworkingManager {
         dataTask.resume()
     }
     
+    func getAbilityDetail(url: String, completion: @escaping(AbilityDetail) -> ()) {
+        
+        guard let url = URL(string: url) else {
+            print("Ability URL is niet beschikbaar")
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) {data, _, error in
+            if error == nil && data != nil {
+                do {
+                    let ability = try JSONDecoder().decode(AbilityDetail.self, from: data!)
+                    DispatchQueue.main.async {
+                        completion(ability)
+                    }
+                } catch {
+                    print("Error tijdens Ability JSON parsing")
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
 }
