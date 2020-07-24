@@ -1,5 +1,5 @@
 //
-//  Pokedex.swift
+//  PokemonModel.swift
 //  SwiftUI Pokedex
 //
 //  Created by Casper Daris on 18/07/2020.
@@ -7,15 +7,6 @@
 //
 
 import Foundation
-
-struct Pokedex: Decodable {
-    var results: [PokemonURL]
-}
-
-struct PokemonURL: Decodable {
-    var name: String
-    var url: String
-}
 
 struct Pokemon: Decodable {
     var abilities: [Ability]
