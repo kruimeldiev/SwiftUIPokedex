@@ -22,10 +22,19 @@ struct Pokemon: Decodable {
     var height: Int
     var id: Int
     var name: String
+    var species: SpeciesURL
     var sprites: Sprite
     var stats: [Stat]
     var types: [Types]
     var weight: Int
+}
+
+struct SpeciesURL: Decodable {
+    var url: String
+}
+
+struct PokemonSpecies: Decodable {
+    var flavor_text_entries: [Flavor_Text]
 }
 
 struct Sprite: Decodable {
@@ -49,4 +58,8 @@ struct Stat: Decodable {
 struct StatURL: Decodable {
     var name: String
     var url: String
+}
+
+struct Flavor_Text: Decodable {
+    var flavor_text: String
 }

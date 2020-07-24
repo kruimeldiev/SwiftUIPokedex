@@ -95,4 +95,25 @@ struct NetworkingManager {
         dataTask.resume()
     }
     
+    func getPokemonSpecies(url: String, completion: @escaping (PokemonSpecies) -> ()) {
+        
+        guard let url = URL(string: url) else {
+            print("Pokemon species URL is niet beschikbaar")
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with: url) {data, _, error in
+            if error == nil && data != nil {
+                do {
+                    let species = try JSONDecoder().decode(PokemonSpecies.self, from: data!)
+                    DispatchQueue.main.async {
+                        completion(species)
+                    }
+                } catch {
+                    print("Error tijdens Species JOSN parsing")
+                }
+            }
+        }
+        dataTask.resume()
+    }
 }

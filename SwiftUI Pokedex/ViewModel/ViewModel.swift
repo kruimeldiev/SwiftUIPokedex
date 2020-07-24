@@ -15,6 +15,16 @@ class ViewModel: ObservableObject {
     @Published var volledigePokedex: Pokedex
     @Published var pokedexArray: [PokemonURL]
     
+    @Published var geselecteerdePokemon = Pokemon(abilities: [],
+                                                  height: 0,
+                                                  id: 0,
+                                                  name: "default",
+                                                  species: SpeciesURL(url: "default"),
+                                                  sprites: Sprite(front_default: "default"),
+                                                  stats: [],
+                                                  types: [],
+                                                  weight: 0)
+    
     init() {
         volledigePokedex = Pokedex(results: [])
         pokedexArray = [PokemonURL(name: "default", url: "default")]

@@ -12,6 +12,7 @@ struct Constants {
     
     static var POKEDEX_URL = "https://pokeapi.co/api/v2/pokemon?limit=151"
     static var POKEMON_URL = "https://pokeapi.co/api/v2/pokemon/"
+    static var POKEMON_SPECIES_URL = "https://pokeapi.co/api/v2/pokemon-species/"
     static var ABILITY_URL = "https://pokeapi.co/api/v2/ability/"
     static var SPRITE_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
     

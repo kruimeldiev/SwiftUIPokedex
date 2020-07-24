@@ -22,6 +22,3 @@ struct AbilityDetail: Decodable {
     var flavor_text_entries: [Flavor_Text]
 }
 
-struct Flavor_Text: Decodable {
-    var flavor_text: String
-}

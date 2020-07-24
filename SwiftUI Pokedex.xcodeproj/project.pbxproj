@@ -23,6 +23,7 @@
 		AF662FCC24C6FF2A00E481CB /* SpriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF662FCB24C6FF2A00E481CB /* SpriteView.swift */; };
 		AF662FCE24C732BE00E481CB /* SpriteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF662FCD24C732BE00E481CB /* SpriteLoader.swift */; };
 		AF70287324C3AAE4004E01C6 /* PokemonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70287224C3AAE4004E01C6 /* PokemonCardView.swift */; };
+		AFB36A1424CAFEAA00369731 /* AboutPokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */; };
 		AFD6D28F24C9956D0041E1FE /* AbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6D28E24C9956D0041E1FE /* AbilityView.swift */; };
 		AFD6D29124C996710041E1FE /* AbilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6D29024C996710041E1FE /* AbilityModel.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		AF662FCB24C6FF2A00E481CB /* SpriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteView.swift; sourceTree = "<group>"; };
 		AF662FCD24C732BE00E481CB /* SpriteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteLoader.swift; sourceTree = "<group>"; };
 		AF70287224C3AAE4004E01C6 /* PokemonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCardView.swift; sourceTree = "<group>"; };
+		AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPokemonView.swift; sourceTree = "<group>"; };
 		AFD6D28E24C9956D0041E1FE /* AbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityView.swift; sourceTree = "<group>"; };
 		AFD6D29024C996710041E1FE /* AbilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				AF4337E224C8A1F800A59198 /* TypeView.swift */,
 				AF4337E424C8D3DB00A59198 /* StatView.swift */,
 				AFD6D28E24C9956D0041E1FE /* AbilityView.swift */,
+				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB36A1424CAFEAA00369731 /* AboutPokemonView.swift in Sources */,
 				AF662FCE24C732BE00E481CB /* SpriteLoader.swift in Sources */,
 				AF28844124C36D4E00FB48C8 /* AppDelegate.swift in Sources */,
 				AF662FCC24C6FF2A00E481CB /* SpriteView.swift in Sources */,

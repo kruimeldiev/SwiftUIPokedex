@@ -17,7 +17,7 @@ struct PokemonCardView: View {
     
     var body: some View {
         HStack {
-            Text("\(pokemonID).")
+            Text("#\(pokemonID).")
             Text(pokemonNaam)
             Spacer()
             SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png")
