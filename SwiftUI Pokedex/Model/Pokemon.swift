@@ -1,5 +1,5 @@
 //
-//  PokemonModel.swift
+//  Pokemon.swift
 //  SwiftUI Pokedex
 //
 //  Created by Casper Daris on 18/07/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pokemon: Decodable {
+struct Pokemon: Codable {
     var abilities: [Ability]
     var height: Int
     var id: Int
@@ -20,37 +20,37 @@ struct Pokemon: Decodable {
     var weight: Int
 }
 
-struct SpeciesURL: Decodable {
+struct SpeciesURL: Codable {
     var url: String
 }
 
-struct PokemonSpecies: Decodable {
+struct PokemonSpecies: Codable {
     var flavor_text_entries: [Flavor_Text]
 }
 
-struct Sprite: Decodable {
+struct Sprite: Codable {
     var front_default: String
 }
 
-struct Types: Decodable {
+struct Types: Codable {
     var type: Type
 }
 
-struct Type: Decodable {
+struct Type: Codable {
     var name: String
     var url: String
 }
 
-struct Stat: Decodable {
+struct Stat: Codable {
     var base_stat: Int
     var stat: StatURL
 }
 
-struct StatURL: Decodable {
+struct StatURL: Codable {
     var name: String
     var url: String
 }
 
-struct Flavor_Text: Decodable {
+struct Flavor_Text: Codable {
     var flavor_text: String
 }

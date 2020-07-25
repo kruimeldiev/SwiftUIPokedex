@@ -1,5 +1,5 @@
 //
-//  AbilityModel.swift
+//  Ability.swift
 //  SwiftUI Pokedex
 //
 //  Created by Casper Daris on 23/07/2020.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Ability: Decodable {
+struct Ability: Codable {
     var ability: AbilityURL
 }
 
-struct AbilityURL: Decodable {
+struct AbilityURL: Codable {
     var name: String
     var url: String
 }
 
-struct AbilityDetail: Decodable {
+struct AbilityDetail: Codable {
     var name: String
     var flavor_text_entries: [Flavor_Text]
 }
