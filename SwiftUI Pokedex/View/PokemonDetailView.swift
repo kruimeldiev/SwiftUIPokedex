@@ -25,12 +25,14 @@ struct PokemonDetailView: View {
             }
             
             AboutPokemonView(pokemonVM: pokemonVM)
+            
+            Text(pokemonVM.specieFlavorTextZoeken())
         }
     }
 }
 
 struct PokemonDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonDetailView(pokemonVM: PokemonViewModel(url: ""))
+        PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: "", specieURL: ""))
     }
 }

@@ -20,9 +20,12 @@ class PokemonViewModel: ObservableObject {
                                      types: [],
                                      weight: 0)
     
+    @Published var pokemonSpecie = PokemonSpecies(flavor_text_entries: [])
+    
     // De init zorgt ervoor dat de juiste pokemon data wordt gebruikt wanneer de PokemonViewModel wordt aangeroepen
-    init(url: String) {
-        pokemonLaden(url: url)
+    init(pokemonURL: String, specieURL: String) {
+        pokemonLaden(url: pokemonURL)
+        specieLaden(url: specieURL)
     }
     
     var abilities: [Ability] {
@@ -66,6 +69,24 @@ class PokemonViewModel: ObservableObject {
         NetworkingManager().getSpecifiekePokemon(url: url) { (pokemon) in
             self.pokemon = pokemon
         }
+    }
+    
+    // Deze functie roept de NetworkingManager aan om de Species van de Pokemon te downloaden uit de API om deze vervolgens weer te geven in de PokemonViewModel
+    func specieLaden(url: String) {
+        NetworkingManager().getPokemonSpecies(url: url) { (specie) in
+            self.pokemonSpecie = specie
+        }
+    }
+    
+    // Deze functie zoekt de juiste flavor_text van de Pokemon en stuurt deze terug als een String return type
+    func specieFlavorTextZoeken() -> String {
+        
+        if let index = self.pokemonSpecie.flavor_text_entries.first(where: { $0.language.name == "en" && $0.version.name == "emerald" }) {
+            return index.flavor_text
+        } else {
+            return "Fout: er is geen flavor text gevonden."
+        }
+        
     }
     
 }

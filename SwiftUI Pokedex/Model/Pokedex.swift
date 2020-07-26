@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Pokedex: Codable {
+struct Pokedex: Decodable {
     var results: [PokedexEntry]
 }
 
-struct PokedexEntry: Codable {
+struct PokedexEntry: Decodable {
     var name: String
     var url: String
 }

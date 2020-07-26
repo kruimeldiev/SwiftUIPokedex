@@ -25,6 +25,6 @@ struct AboutPokemonView: View {
 
 struct AboutPokemonView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutPokemonView(pokemonVM: PokemonViewModel(url: ""))
+        AboutPokemonView(pokemonVM: PokemonViewModel(pokemonURL: "", specieURL: ""))
     }
 }

@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Ability: Codable {
+struct Ability: Decodable {
     var ability: AbilityURL
 }
 
-struct AbilityURL: Codable {
+struct AbilityURL: Decodable {
     var name: String
     var url: String
 }
 
-struct AbilityDetail: Codable {
+struct AbilityDetail: Decodable {
     var name: String
     var flavor_text_entries: [Flavor_Text]
 }

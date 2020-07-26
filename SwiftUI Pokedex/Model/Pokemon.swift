@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pokemon: Codable {
+struct Pokemon: Decodable {
     var abilities: [Ability]
     var height: Int
     var id: Int
@@ -20,37 +20,48 @@ struct Pokemon: Codable {
     var weight: Int
 }
 
-struct SpeciesURL: Codable {
+struct SpeciesURL: Decodable {
     var url: String
 }
 
-struct PokemonSpecies: Codable {
+struct PokemonSpecies: Decodable {
     var flavor_text_entries: [Flavor_Text]
 }
 
-struct Sprite: Codable {
+struct Sprite: Decodable {
     var front_default: String
 }
 
-struct Types: Codable {
+struct Types: Decodable {
     var type: Type
 }
 
-struct Type: Codable {
+struct Type: Decodable {
     var name: String
     var url: String
 }
 
-struct Stat: Codable {
+struct Stat: Decodable {
     var base_stat: Int
     var stat: StatURL
 }
 
-struct StatURL: Codable {
+struct StatURL: Decodable {
     var name: String
     var url: String
 }
 
-struct Flavor_Text: Codable {
+struct Flavor_Text: Decodable {
     var flavor_text: String
+    var language: Flavor_Text_Language
+    var version: Game_Version
+}
+
+struct Flavor_Text_Language: Decodable {
+    var name: String
+}
+
+struct Game_Version: Decodable {
+    var name: String
+    var url: String
 }

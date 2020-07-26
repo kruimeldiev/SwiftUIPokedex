@@ -19,7 +19,7 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(0..<self.pokedexViewModel.pokedex.count, id: \.self) { pokemon in
-                        NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(url: self.pokedexViewModel.pokedex[pokemon].url))) {
+                        NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url, specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"))) {
                             PokemonCardView(pokemon: self.pokedexViewModel.pokedex[pokemon], pokemonID: pokemon.self + 1)
                         }
                     }
