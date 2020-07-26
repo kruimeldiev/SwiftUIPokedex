@@ -12,21 +12,39 @@ struct PokemonDetailView: View {
     
     @ObservedObject var pokemonVM: PokemonViewModel
     
+    @State var achtergrondKleur = UIColor()
+    
     var body: some View {
         
-        VStack {
+        ZStack {
             
-            HStack {
-                SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default).frame(width: 150, height: 150)
-                VStack (alignment: .leading) {
-                    Text("#\(pokemonVM.id)")
-                    Text(pokemonVM.name.capitalized)
+            Color("\(self.pokemonVM.types[0].type.name.capitalized)TypeKleur")
+                .brightness(0.2)
+                .hueRotation(.degrees(-10))
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                
+                HStack {
+                    SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default).frame(width: 150, height: 150)
+                    VStack (alignment: .leading) {
+                        Text("#\(pokemonVM.id)")
+                        Text(pokemonVM.name.capitalized)
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.white)
+                            .shadow(radius: 1)
+                        HStack {
+                            ForEach(0..<pokemonVM.types.count, id: \.self) { type in
+                                TypeView(type: self.pokemonVM.types[type].type)
+                            }
+                        }
+                    }
                 }
+                
+                AboutPokemonView(pokemonVM: pokemonVM)
+                
             }
-            
-            AboutPokemonView(pokemonVM: pokemonVM)
-            
-            Text(pokemonVM.specieFlavorTextZoeken())
         }
     }
 }

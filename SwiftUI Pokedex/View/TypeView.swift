@@ -15,20 +15,24 @@ struct TypeView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: 80, height: 40)
+                .frame(width: 50, height: 30)
                 .cornerRadius(5)
                 .foregroundColor(Color(self.getTypeKleur(type: self.type)))
+                .shadow(radius: 1)
             
             Text(self.type.name.capitalized)
-                .padding(5)
+                .font(.system(size: 12))
+                .foregroundColor(.white)
         }
     }
     
     func getTypeKleur(type: Type) -> String {
         switch type.name {
         case "bug": return "BugTypeKleur"
+        case "dark": return "DarkTypeKleur"
         case "dragon": return "DragonTypeKleur"
         case "electric": return "ElectricTypeKleur"
+        case "fairy": return "FairyTypeKleur"
         case "fighting": return "FightingTypeKleur"
         case "fire": return "FireTypeKleur"
         case "flying": return "FlyingTypeKleur"
@@ -40,6 +44,7 @@ struct TypeView: View {
         case "poison": return "PoisonTypeKleur"
         case "psychic": return "PsychicTypeKleur"
         case "rock": return "RockTypeKleur"
+        case "steel": return "SteelTypeKleur"
         default: return "WaterTypeKleur"
         }
     }
