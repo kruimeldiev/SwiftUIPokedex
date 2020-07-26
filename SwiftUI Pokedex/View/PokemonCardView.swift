@@ -11,12 +11,15 @@ import SwiftUI
 struct PokemonCardView: View {
     
     var pokemon: PokedexEntryViewModel
+    var pokemonID: Int
     
     var body: some View {
         
         HStack {
             
             Text(self.pokemon.name.capitalized)
+            Spacer()
+            SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png").frame(width: 40, height: 40)
             
         }
     }
@@ -24,6 +27,6 @@ struct PokemonCardView: View {
 
 struct PokemonCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCardView(pokemon: PokedexEntryViewModel(entry: PokedexEntry(name: "", url: "")))
+        PokemonCardView(pokemon: PokedexEntryViewModel(entry: PokedexEntry(name: "", url: "")), pokemonID: 0)
     }
 }

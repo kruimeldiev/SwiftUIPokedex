@@ -10,11 +10,14 @@ import SwiftUI
 
 struct AboutPokemonView: View {
     
+    @ObservedObject var pokemonVM: PokemonViewModel
+    
     var body: some View {
         
         VStack {
             
-            Text("Height:  cm")
+            Text("Hoogte: \(pokemonVM.height * 10) cm")
+            Text("Gewicht: \(pokemonVM.weight / 10) kg")
             
         }
     }
@@ -22,6 +25,6 @@ struct AboutPokemonView: View {
 
 struct AboutPokemonView_Previews: PreviewProvider {
     static var previews: some View {
-        AboutPokemonView()
+        AboutPokemonView(pokemonVM: PokemonViewModel(url: ""))
     }
 }
