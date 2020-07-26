@@ -2,7 +2,7 @@
 //  StatView.swift
 //  SwiftUI Pokedex
 //
-//  Created by Casper Daris on 22/07/2020.
+//  Created by Casper Daris on 27/07/2020.
 //  Copyright © 2020 Casper Daris. All rights reserved.
 //
 
@@ -10,45 +10,28 @@ import SwiftUI
 
 struct StatView: View {
     
-    var stat: Stat
+    @ObservedObject var pokemonVM: PokemonViewModel
     
     var body: some View {
         
-        HStack {
+        ZStack {
             
-            Text(self.getStatName(stat: self.stat))
+            Rectangle()
+                .foregroundColor(Color(.white))
+                .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 20))
+                .shadow(color: Color.black.opacity(0.2), radius: 10)
             
-            ZStack (alignment: .leading) {
-                
-                Rectangle()
-                    .frame(width: 200, height: 10)
-                    .cornerRadius(10)
-                    .foregroundColor(Color.blue)
-                
-                Rectangle()
-                    .frame(width: CGFloat(stat.base_stat), height: 10)
-                    .cornerRadius(10)
-                    .foregroundColor(Color.red)
-                
+            VStack {
+                ForEach(0..<self.pokemonVM.stats.count, id: \.self) { stat in
+                    StatBarView(stat: self.pokemonVM.stats[stat])
+                }
             }
-        }
-    }
-    
-    func getStatName(stat: Stat) -> String {
-        switch stat.stat.name {
-        case "hp": return "HP"
-        case "attack": return "Attack"
-        case "defense": return "Defense"
-        case "special-attack": return "Spec. Att."
-        case "special-defense": return "Spec. Def."
-        case "speed": return "Speed"
-        default: return "Error"
         }
     }
 }
 
 struct StatView_Previews: PreviewProvider {
     static var previews: some View {
-        StatView(stat: Stat(base_stat: 50, stat: StatURL(name: "default", url: "default")))
+        StatView(pokemonVM: PokemonViewModel(pokemonURL: "", specieURL: ""))
     }
 }
