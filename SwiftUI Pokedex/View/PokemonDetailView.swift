@@ -14,11 +14,17 @@ struct PokemonDetailView: View {
     
     var body: some View {
         
-        VStack {
+        VStack (alignment: .leading){
             
+            Text("#\(pokemonVM.id)")
             Text(pokemonVM.name.capitalized)
-            Text("\(pokemonVM.weight)")
             
+            VStack {
+            
+                Text("Hoogte: \(pokemonVM.height * 10) cm")
+                Text("Gewicht: \(pokemonVM.weight / 10) kg")
+            
+            }
         }
     }
 }

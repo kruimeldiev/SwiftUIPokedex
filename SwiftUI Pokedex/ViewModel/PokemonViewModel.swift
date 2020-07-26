@@ -10,10 +10,13 @@ import Foundation
 
 class PokemonViewModel: ObservableObject {
     
-    @Published var pokemon: Pokemon
+    @Published var pokemon = Pokemon(height: 0,
+                                     id: 0,
+                                     name: "",
+                                     weight: 0)
     
+    // De init zorgt ervoor dat de juiste pokemon data wordt gebruikt wanneer de PokemonViewModel wordt aangeroepen
     init(url: String) {
-        pokemon = Pokemon(height: 0, id: 0, name: "", weight: 0)
         pokemonLaden(url: url)
     }
     
@@ -53,12 +56,11 @@ class PokemonViewModel: ObservableObject {
         return self.pokemon.weight
     }
     
+    // Deze functie roept de NetworkingManager aan om een Pokemon uit de API te downloaden
     func pokemonLaden(url: String) {
-        
         NetworkingManager().getSpecifiekePokemon(url: url) { (pokemon) in
             self.pokemon = pokemon
         }
-        
     }
     
 }
