@@ -11,7 +11,6 @@ import SwiftUI
 struct PokemonCardView: View {
     
     var pokemon: PokedexEntryViewModel
-    var pokemonID: Int
     
     var body: some View {
         
@@ -25,6 +24,6 @@ struct PokemonCardView: View {
 
 struct PokemonCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonCardView(pokemon: PokedexEntryViewModel(entry: PokedexEntry(name: "", url: "")), pokemonID: 0)
+        PokemonCardView(pokemon: PokedexEntryViewModel(entry: PokedexEntry(name: "", url: "")))
     }
 }

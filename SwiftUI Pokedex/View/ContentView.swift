@@ -19,9 +19,13 @@ struct ContentView: View {
             NavigationView {
                 List {
                     ForEach(0..<self.pokedexViewModel.pokedex.count, id: \.self) { pokemon in
-                        PokemonCardView(pokemon: self.pokedexViewModel.pokedex[pokemon], pokemonID: pokemon.self + 1)
+                        NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(url: self.pokedexViewModel.pokedex[pokemon].url))) {
+                            PokemonCardView(pokemon: self.pokedexViewModel.pokedex[pokemon])
+                        }
                     }
                 }
+                .navigationBarTitle(Text("SwiftUI Pokedex"))
+                .navigationBarHidden(false)
             }
         }
     }

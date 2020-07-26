@@ -9,14 +9,14 @@
 import Foundation
 
 struct Pokemon: Codable {
-    var abilities: [Ability]
+    //var abilities: [Ability]
     var height: Int
     var id: Int
     var name: String
-    var species: SpeciesURL
-    var sprites: Sprite
-    var stats: [Stat]
-    var types: [Types]
+    //var species: SpeciesURL
+    //var sprites: Sprite
+    //var stats: [Stat]
+    //var types: [Types]
     var weight: Int
 }
 
