@@ -17,6 +17,7 @@ struct PokemonCardView: View {
         
         HStack {
             
+            Text("#\(self.pokemonID)")
             Text(self.pokemon.name.capitalized)
             Spacer()
             SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png").frame(width: 40, height: 40)

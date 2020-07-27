@@ -27,6 +27,7 @@ struct ContentView: View {
                 .navigationBarTitle(Text("SwiftUI Pokedex"))
                 .navigationBarHidden(false)
             }
+            .accentColor(.white)
         }
     }
 }

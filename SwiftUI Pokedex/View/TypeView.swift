@@ -15,7 +15,7 @@ struct TypeView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: 50, height: 30)
+                .frame(width: 60, height: 30)
                 .cornerRadius(5)
                 .foregroundColor(Color(self.getTypeKleur(type: self.type)))
                 .shadow(radius: 1)

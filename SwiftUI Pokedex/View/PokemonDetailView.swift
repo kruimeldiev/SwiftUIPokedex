@@ -20,23 +20,56 @@ struct PokemonDetailView: View {
         
         ZStack {
             
-            Color("\(self.pokemonVM.types[0].type.name.capitalized)TypeKleur")
-                .brightness(0.2)
-                .hueRotation(.degrees(-10))
+            // De achtergrondkleur wordt bepaald door de eerste Type van de pokemon
+            LinearGradient(gradient: Gradient(colors: [Color("\(self.pokemonVM.types[0].type.name.capitalized)TypeKleur"), .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .hueRotation(.degrees(10))
                 .edgesIgnoringSafeArea(.all)
             
+            // Deze VStack zorgt voor de text (pokemon naam) die op de achtergrond staat
             VStack {
-                
+                Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(y: -400)
+                        .foregroundColor(Color.white.opacity(0.05))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(y: -320)
+                        .foregroundColor(Color.white.opacity(0.05))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                Text(self.pokemonVM.name.uppercased())
+                    .font(Font.system(size: 150, weight: .thin))
+                    .offset(y: -240)
+                    .foregroundColor(Color.white.opacity(0.05))
+                    .fixedSize()
+                    .frame(width: 50, height: 50, alignment: .center)
+                Text(self.pokemonVM.name.uppercased())
+                    .font(Font.system(size: 150, weight: .thin))
+                    .offset(y: -160)
+                    .foregroundColor(Color.white.opacity(0.05))
+                    .fixedSize()
+                    .frame(width: 50, height: 50, alignment: .center)
+            }
+            
+            VStack {
                 HStack {
-                    
-                    SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default).frame(width: 150, height: 150)
-                    
+                    ZStack {
+                        SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default)
+                            .frame(width: 150, height: 150)
+                        SpriteCircleEffect()
+                            .frame(width: 120, height: 120)
+                            .blur(radius: 1.5)
+                    }
                     VStack (alignment: .leading) {
                         Text("#\(pokemonVM.id)")
+                            .bold()
                         Text(pokemonVM.name.capitalized)
                             .font(.largeTitle)
                             .bold()
                             .foregroundColor(.white)
+                            .lineLimit(1)
                             .shadow(radius: 1)
                         HStack {
                             ForEach(0..<pokemonVM.types.count, id: \.self) { type in
@@ -45,9 +78,10 @@ struct PokemonDetailView: View {
                         }
                     }
                 }
+                .offset(y: -20)
                 
-                HStack (spacing: 80){
-                    
+                HStack {
+                    Spacer()
                     Button(action: {
                         self.showingStatView = false
                     }) {
@@ -55,23 +89,10 @@ struct PokemonDetailView: View {
                             Text("About")
                                 .font(.headline)
                                 .foregroundColor(.white)
-                            
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white)
-                                    .frame(width: 10, height: 10)
-                                
-                                if self.showingStatView == false {
-                                    Circle()
-                                        .stroke(lineWidth: 1)
-                                        .frame(width: 15, height: 15)
-                                        .foregroundColor(Color.white)
-                                }
-                            }
                         }
                         .shadow(radius: 1)
                     }
-                    
+                    Spacer()
                     Button(action: {
                         self.showingStatView = true
                     }) {
@@ -79,32 +100,21 @@ struct PokemonDetailView: View {
                             Text("Stats")
                                 .font(.headline)
                                 .foregroundColor(.white)
-                            
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white)
-                                    .frame(width: 10, height: 10)
-                                
-                                if self.showingStatView == true {
-                                    Circle()
-                                        .stroke(lineWidth: 1)
-                                        .frame(width: 15, height: 15)
-                                        .foregroundColor(Color.white)
-                                }
-                            }
                         }
                         .shadow(radius: 1)
                     }
+                    Spacer()
                 }
                 
                 if self.showingStatView {
                     StatView(pokemonVM: self.pokemonVM)
-                        .frame(height: 450)
+                        .frame(minWidth: 20, idealWidth: .infinity, maxWidth: .infinity, minHeight: 400, idealHeight: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
                 } else {
                     AboutPokemonView(pokemonVM: pokemonVM)
-                        .frame(height: 450)
+                        .frame(minWidth: 20, idealWidth: .infinity, maxWidth: .infinity, minHeight: 400, idealHeight: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
                 }
-                
             }
         }
     }

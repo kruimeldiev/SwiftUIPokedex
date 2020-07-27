@@ -11,6 +11,7 @@
 		AF1923F224CB46DB003A2036 /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1923F124CB46DB003A2036 /* PokedexViewModel.swift */; };
 		AF1923F424CB47EE003A2036 /* Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1923F324CB47EE003A2036 /* Pokedex.swift */; };
 		AF1923F624CB48D3003A2036 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1923F524CB48D3003A2036 /* PokemonViewModel.swift */; };
+		AF239B1724CF17B40049C014 /* SpriteCircleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF239B1624CF17B40049C014 /* SpriteCircleEffect.swift */; };
 		AF28844124C36D4E00FB48C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28844024C36D4E00FB48C8 /* AppDelegate.swift */; };
 		AF28844324C36D4E00FB48C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28844224C36D4E00FB48C8 /* SceneDelegate.swift */; };
 		AF28844524C36D4E00FB48C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF28844424C36D4E00FB48C8 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 		AF1923F124CB46DB003A2036 /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
 		AF1923F324CB47EE003A2036 /* Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex.swift; sourceTree = "<group>"; };
 		AF1923F524CB48D3003A2036 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		AF239B1624CF17B40049C014 /* SpriteCircleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCircleEffect.swift; sourceTree = "<group>"; };
 		AF28843D24C36D4E00FB48C8 /* SwiftUI Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI Pokedex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF28844024C36D4E00FB48C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF28844224C36D4E00FB48C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				AF4337E424C8D3DB00A59198 /* StatBarView.swift */,
 				AFD6D28E24C9956D0041E1FE /* AbilityView.swift */,
 				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
+				AF239B1624CF17B40049C014 /* SpriteCircleEffect.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF1923F224CB46DB003A2036 /* PokedexViewModel.swift in Sources */,
+				AF239B1724CF17B40049C014 /* SpriteCircleEffect.swift in Sources */,
 				AFB36A1424CAFEAA00369731 /* AboutPokemonView.swift in Sources */,
 				AF662FCE24C732BE00E481CB /* SpriteLoader.swift in Sources */,
 				AF28844124C36D4E00FB48C8 /* AppDelegate.swift in Sources */,
