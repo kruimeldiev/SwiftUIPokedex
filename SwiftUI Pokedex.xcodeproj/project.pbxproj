@@ -389,6 +389,7 @@
 				DEVELOPMENT_TEAM = UFFYTBE3CU;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI Pokedex/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,6 +410,7 @@
 				DEVELOPMENT_TEAM = UFFYTBE3CU;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI Pokedex/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

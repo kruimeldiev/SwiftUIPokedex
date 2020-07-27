@@ -71,7 +71,7 @@ struct PokemonDetailView: View {
                             .foregroundColor(.white)
                             .lineLimit(1)
                             .shadow(radius: 1)
-                        HStack {
+                        HStack (alignment: .center) {
                             ForEach(0..<pokemonVM.types.count, id: \.self) { type in
                                 TypeView(type: self.pokemonVM.types[type].type)
                             }

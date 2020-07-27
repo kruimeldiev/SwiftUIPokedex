@@ -15,13 +15,18 @@ struct PokemonCardView: View {
     
     var body: some View {
         
-        HStack {
+        ZStack {
+            HStack {
+                Text("#\(self.pokemonID)")
+                Text(self.pokemon.name.capitalized)
+                Spacer()
+            }
+            .padding()
+            .background(Color.red)
+            .cornerRadius(20)
             
-            Text("#\(self.pokemonID)")
-            Text(self.pokemon.name.capitalized)
-            Spacer()
-            SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png").frame(width: 40, height: 40)
-            
+            SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png").frame(width: 100, height: 100)
+                .offset(x: 120, y: -10)
         }
     }
 }
