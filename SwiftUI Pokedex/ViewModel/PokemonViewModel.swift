@@ -64,6 +64,14 @@ class PokemonViewModel: ObservableObject {
         return self.pokemon.weight
     }
     
+    var pokemonKleur: String {
+        if self.pokemon.types.count > 0 {
+            return "\(self.pokemon.types[0].type.name.capitalized)TypeKleur"
+        } else {
+            return "NormalTypeKleur"
+        }
+    }
+    
     // Deze functie roept de NetworkingManager aan om een Pokemon uit de API te downloaden
     func pokemonLaden(url: String) {
         NetworkingManager().getSpecifiekePokemon(url: url) { (pokemon) in

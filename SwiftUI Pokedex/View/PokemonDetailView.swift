@@ -12,8 +12,6 @@ struct PokemonDetailView: View {
     
     @ObservedObject var pokemonVM: PokemonViewModel
     
-    @State var achtergrondKleur = UIColor()
-    
     @State var showingStatView = false
     
     var body: some View {
@@ -21,34 +19,34 @@ struct PokemonDetailView: View {
         ZStack {
             
             // De achtergrondkleur wordt bepaald door de eerste Type van de pokemon
-            LinearGradient(gradient: Gradient(colors: [Color("\(self.pokemonVM.types[0].type.name.capitalized)TypeKleur"), .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(gradient: Gradient(colors: [Color(self.pokemonVM.pokemonKleur), .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .hueRotation(.degrees(10))
                 .edgesIgnoringSafeArea(.all)
             
             // Deze VStack zorgt voor de text (pokemon naam) die op de achtergrond staat
             VStack {
                 Text(self.pokemonVM.name.uppercased())
-                        .font(Font.system(size: 150, weight: .thin))
-                        .offset(y: -400)
-                        .foregroundColor(Color.white.opacity(0.05))
-                        .fixedSize()
-                        .frame(width: 50, height: 50, alignment: .center)
+                    .font(Font.system(size: 150, weight: .thin))
+                    .offset(y: -400)
+                    .foregroundColor(Color.white.opacity(0.04))
+                    .fixedSize()
+                    .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
-                        .font(Font.system(size: 150, weight: .thin))
-                        .offset(y: -320)
-                        .foregroundColor(Color.white.opacity(0.05))
-                        .fixedSize()
-                        .frame(width: 50, height: 50, alignment: .center)
+                    .font(Font.system(size: 150, weight: .thin))
+                    .offset(y: -320)
+                    .foregroundColor(Color.white.opacity(0.04))
+                    .fixedSize()
+                    .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -240)
-                    .foregroundColor(Color.white.opacity(0.05))
+                    .foregroundColor(Color.white.opacity(0.04))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -160)
-                    .foregroundColor(Color.white.opacity(0.05))
+                    .foregroundColor(Color.white.opacity(0.04))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
             }

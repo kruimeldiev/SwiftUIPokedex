@@ -16,15 +16,18 @@ struct ContentView: View {
         
         VStack {
             
+            Text("SwiftUI Pokedex")
+            
             NavigationView {
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     ForEach(0..<self.pokedexViewModel.pokedex.count, id: \.self) { pokemon in
                         NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url, specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"))) {
-                            PokemonCardView(pokemon: self.pokedexViewModel.pokedex[pokemon], pokemonID: pokemon.self + 1)
+                            PokemonCardView(pokemon: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url, specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"), pokedexEntry: self.pokedexViewModel.pokedex[pokemon],pokemonID: pokemon.self + 1)
+                            .padding(10)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
-                    .frame(width: UIScreen.main.bounds.width - 60)
+                    .frame(width: UIScreen.main.bounds.width)
                 }
                 .navigationBarTitle(Text("SwiftUI Pokedex"))
                 .navigationBarHidden(true)
