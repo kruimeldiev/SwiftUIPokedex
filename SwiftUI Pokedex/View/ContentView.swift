@@ -12,18 +12,34 @@ struct ContentView: View {
     
     @ObservedObject var pokedexViewModel = PokedexViewModel()
     
+    @State private var pokemonZoekText = ""
+    
     var body: some View {
         
-        VStack {
+        NavigationView {
             
-            Text("SwiftUI Pokedex")
-            
-            NavigationView {
+            VStack(alignment: .leading) {
+                
+                Text("SwiftUI Pokédex")
+                    .font(Font.system(size: 30, weight: .bold))
+                    .padding(20)
+                    .offset(x: 10)
+                
+                SearchBar(zoekText: $pokemonZoekText)
+                
                 ScrollView(showsIndicators: false) {
-                    ForEach(0..<self.pokedexViewModel.pokedex.count, id: \.self) { pokemon in
-                        NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url, specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"))) {
-                            PokemonCardView(pokemon: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url, specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"), pokedexEntry: self.pokedexViewModel.pokedex[pokemon],pokemonID: pokemon.self + 1)
-                            .padding(10)
+                    
+                    ForEach(self.pokedexViewModel.pokedex.indices.filter {
+                        // Als de pokemonZoekText een lege String is, dan worden alle Pokemon weergegeven
+                        self.pokemonZoekText.isEmpty ? true : self.pokedexViewModel.pokedex[$0].name.localizedCaseInsensitiveContains(self.pokemonZoekText)
+                    }, id: \.self) { pokemon in
+                        NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url,
+                                                                                                  specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"))) {
+                            PokemonCardView(pokemon: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url,
+                                                                      specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"),
+                                            pokedexEntry: self.pokedexViewModel.pokedex[pokemon],
+                                            pokemonID: pokemon.self + 1)
+                                                .padding(10)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }
@@ -32,13 +48,7 @@ struct ContentView: View {
                 .navigationBarTitle(Text("SwiftUI Pokedex"))
                 .navigationBarHidden(true)
             }
-            .accentColor(.white)
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        .accentColor(.white)
     }
 }

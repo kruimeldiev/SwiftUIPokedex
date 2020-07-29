@@ -38,8 +38,8 @@ struct PokemonCardView: View {
             .padding()
             .background(LinearGradient(gradient: Gradient(colors: [.clear, .white]), startPoint: .top, endPoint: .bottom).opacity(0.3))
             .background(Color(self.pokemon.pokemonKleur).hueRotation(.degrees(10)).brightness(0.2))
-            .cornerRadius(20)
-            .shadow(color: Color(self.pokemon.pokemonKleur).opacity(0.3), radius: 5, x: 0, y: 5)
+            .cornerRadius(10)
+            .shadow(color: Color(self.pokemon.pokemonKleur).opacity(0.2), radius: 7, x: 0, y: 7)
             
             ZStack {
                 SpriteView(pokemonSpriteURL: "\(Constants.SPRITE_URL)\(pokemonID).png")

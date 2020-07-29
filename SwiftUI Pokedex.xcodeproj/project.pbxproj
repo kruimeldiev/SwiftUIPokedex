@@ -30,6 +30,7 @@
 		AFB36A1424CAFEAA00369731 /* AboutPokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */; };
 		AFD6D28F24C9956D0041E1FE /* AbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6D28E24C9956D0041E1FE /* AbilityView.swift */; };
 		AFD6D29124C996710041E1FE /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6D29024C996710041E1FE /* Ability.swift */; };
+		AFEAC70B24D1A7B8003A7C9A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEAC70A24D1A7B8003A7C9A /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPokemonView.swift; sourceTree = "<group>"; };
 		AFD6D28E24C9956D0041E1FE /* AbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityView.swift; sourceTree = "<group>"; };
 		AFD6D29024C996710041E1FE /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
+		AFEAC70A24D1A7B8003A7C9A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				AFD6D28E24C9956D0041E1FE /* AbilityView.swift */,
 				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
 				AF239B1624CF17B40049C014 /* SpriteCircleEffect.swift */,
+				AFEAC70A24D1A7B8003A7C9A /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				AF662FCA24C6FBA400E481CB /* PokemonDetailView.swift in Sources */,
 				AF4337E524C8D3DB00A59198 /* StatBarView.swift in Sources */,
 				AF28844324C36D4E00FB48C8 /* SceneDelegate.swift in Sources */,
+				AFEAC70B24D1A7B8003A7C9A /* SearchBar.swift in Sources */,
 				AF11DD8624CE377B00D39D97 /* StatView.swift in Sources */,
 				AF4337E324C8A1F800A59198 /* TypeView.swift in Sources */,
 				AF1923F424CB47EE003A2036 /* Pokedex.swift in Sources */,
