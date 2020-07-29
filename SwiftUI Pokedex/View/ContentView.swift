@@ -26,6 +26,8 @@ struct ContentView: View {
                     .offset(x: 10)
                 
                 SearchBar(zoekText: $pokemonZoekText)
+                    .accentColor(.blue)
+                    
                 
                 ScrollView(showsIndicators: false) {
                     

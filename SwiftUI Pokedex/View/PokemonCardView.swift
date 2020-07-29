@@ -19,7 +19,7 @@ struct PokemonCardView: View {
         
         ZStack {
             VStack(alignment: .leading) {
-                Text("#\(self.pokemonID)")
+                Text("#\(self.pokemonID, specifier: "%03d")")
                     .font(Font.system(size: 15, weight: .light))
                     .foregroundColor(.black)
                     .shadow(radius: 1)
@@ -33,11 +33,10 @@ struct PokemonCardView: View {
                     }
                 }
             }
-            .offset(x: -100)
-            .frame(width: UIScreen.main.bounds.width - 80, height: 80, alignment: .center)
+            .frame(width: UIScreen.main.bounds.width - 80, height: 80, alignment: .leading)
             .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [.clear, .white]), startPoint: .top, endPoint: .bottom).opacity(0.3))
-            .background(Color(self.pokemon.pokemonKleur).hueRotation(.degrees(10)).brightness(0.2))
+            .background(LinearGradient(gradient: Gradient(colors: [.white, .clear]), startPoint: .top, endPoint: .bottom).opacity(0.5))
+            .background(Color(self.pokemon.pokemonKleur).hueRotation(.degrees(10)).brightness(0.1))
             .cornerRadius(10)
             .shadow(color: Color(self.pokemon.pokemonKleur).opacity(0.2), radius: 7, x: 0, y: 7)
             

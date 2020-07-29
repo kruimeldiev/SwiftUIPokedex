@@ -61,7 +61,7 @@ struct PokemonDetailView: View {
                             .blur(radius: 1.5)
                     }
                     VStack (alignment: .leading) {
-                        Text("#\(pokemonVM.id)")
+                        Text("#\(pokemonVM.id, specifier: "%03d")")
                             .bold()
                         Text(pokemonVM.name.capitalized)
                             .font(.largeTitle)
