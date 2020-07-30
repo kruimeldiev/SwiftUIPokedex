@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF023DC424D2B1E600A28AF8 /* CustomCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF023DC324D2B1E600A28AF8 /* CustomCornerRadius.swift */; };
 		AF11DD8624CE377B00D39D97 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11DD8524CE377B00D39D97 /* StatView.swift */; };
 		AF1923F224CB46DB003A2036 /* PokedexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1923F124CB46DB003A2036 /* PokedexViewModel.swift */; };
 		AF1923F424CB47EE003A2036 /* Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1923F324CB47EE003A2036 /* Pokedex.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF023DC324D2B1E600A28AF8 /* CustomCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerRadius.swift; sourceTree = "<group>"; };
 		AF11DD8524CE377B00D39D97 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		AF1923F124CB46DB003A2036 /* PokedexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewModel.swift; sourceTree = "<group>"; };
 		AF1923F324CB47EE003A2036 /* Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
 				AF239B1624CF17B40049C014 /* SpriteCircleEffect.swift */,
 				AFEAC70A24D1A7B8003A7C9A /* SearchBar.swift */,
+				AF023DC324D2B1E600A28AF8 /* CustomCornerRadius.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				AF28844324C36D4E00FB48C8 /* SceneDelegate.swift in Sources */,
 				AFEAC70B24D1A7B8003A7C9A /* SearchBar.swift in Sources */,
 				AF11DD8624CE377B00D39D97 /* StatView.swift in Sources */,
+				AF023DC424D2B1E600A28AF8 /* CustomCornerRadius.swift in Sources */,
 				AF4337E324C8A1F800A59198 /* TypeView.swift in Sources */,
 				AF1923F424CB47EE003A2036 /* Pokedex.swift in Sources */,
 				AF28845A24C373E300FB48C8 /* Pokemon.swift in Sources */,

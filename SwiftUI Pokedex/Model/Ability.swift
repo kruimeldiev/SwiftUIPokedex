@@ -19,6 +19,11 @@ struct AbilityURL: Decodable {
 
 struct AbilityDetail: Decodable {
     var name: String
-    var flavor_text_entries: [Flavor_Text]
+    var flavor_text_entries: [Ability_Flavor_Text]
 }
 
+struct Ability_Flavor_Text: Decodable {
+    var flavor_text: String
+    var language: Language
+    var version_group: Game_Version
+}

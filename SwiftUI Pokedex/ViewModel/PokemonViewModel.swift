@@ -20,7 +20,8 @@ class PokemonViewModel: ObservableObject {
                                      types: [],
                                      weight: 0)
     
-    @Published var pokemonSpecie = PokemonSpecies(flavor_text_entries: [])
+    @Published var pokemonSpecie = PokemonSpecies(flavor_text_entries: [],
+                                                  genera: [])
     
     // De init zorgt ervoor dat de juiste pokemon data wordt gebruikt wanneer de PokemonViewModel wordt aangeroepen
     init(pokemonURL: String, specieURL: String) {
@@ -89,12 +90,21 @@ class PokemonViewModel: ObservableObject {
     // Deze functie zoekt de juiste flavor_text van de Pokemon en stuurt deze terug als een String return type
     func specieFlavorTextZoeken() -> String {
         
+        // De index is de eerste instantie van de flavor_text_entries waar de taal Engels is en de tekst uit het Pokémon Emerald spel komt
         if let index = self.pokemonSpecie.flavor_text_entries.first(where: { $0.language.name == "en" && $0.version.name == "emerald" }) {
             return index.flavor_text
         } else {
             return "Fout: er is geen flavor text gevonden."
         }
-        
+    }
+    
+    // Deze functie zoekt de juiste genera (Pokémon soort) van de Pokémon en stuurt deze terug als een String
+    func specieGeneraZoeken() -> String {
+        if let index = self.pokemonSpecie.genera.first(where: { $0.language.name == "en" }) {
+            return index.genus
+        } else {
+            return "Geen data gevonden"
+        }
     }
     
 }

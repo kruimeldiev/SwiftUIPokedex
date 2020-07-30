@@ -25,7 +25,8 @@ struct SpeciesURL: Decodable {
 }
 
 struct PokemonSpecies: Decodable {
-    var flavor_text_entries: [Flavor_Text]
+    var flavor_text_entries: [Specie_Flavor_Text]
+    var genera: [Genera]
 }
 
 struct Sprite: Decodable {
@@ -51,17 +52,22 @@ struct StatURL: Decodable {
     var url: String
 }
 
-struct Flavor_Text: Decodable {
+struct Specie_Flavor_Text: Decodable {
     var flavor_text: String
-    var language: Flavor_Text_Language
+    var language: Language
     var version: Game_Version
 }
 
-struct Flavor_Text_Language: Decodable {
+struct Language: Decodable {
     var name: String
 }
 
 struct Game_Version: Decodable {
     var name: String
     var url: String
+}
+
+struct Genera: Decodable {
+    var genus: String
+    var language: Language
 }

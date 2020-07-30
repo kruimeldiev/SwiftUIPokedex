@@ -15,35 +15,60 @@ struct AboutPokemonView: View {
     var body: some View {
         
         ZStack {
-        
+            
             Rectangle()
                 .foregroundColor(Color(.white))
-                .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 20))
-                .shadow(color: Color.black.opacity(0.2), radius: 10)
+                .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 10))
+                .shadow(color: Color.black.opacity(0.2), radius: 5)
             
-            VStack {
-                
-                Text(pokemonVM.specieFlavorTextZoeken())
-                Text("Hoogte: \(pokemonVM.height * 10) cm")
-                Text("Gewicht: \(pokemonVM.weight / 10) kg")
-                
+            ScrollView {
+                VStack(alignment: .leading, spacing: 25) {
+                    
+                    Text(pokemonVM.specieFlavorTextZoeken())
+                        .multilineTextAlignment(.leading)
+                        .padding(.top, 20)
+                    
+                    Text("Pokémon data:")
+                        .font(Font.system(.callout).bold())
+                        .foregroundColor(Color(self.pokemonVM.pokemonKleur))
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text("Soort")
+                                .bold()
+                                .frame(width: 100, alignment: .leading)
+                            Text(pokemonVM.specieGeneraZoeken())
+                        }
+                        HStack {
+                            Text("Lengte")
+                                .bold()
+                                .frame(width: 100, alignment: .leading)
+                            Text("\(pokemonVM.height * 10) cm")
+                        }
+                        HStack {
+                            Text("Gewicht")
+                                .bold()
+                                .frame(width: 100, alignment: .leading)
+                            Text("\(pokemonVM.weight / 10) kg")
+                        }
+                        HStack(alignment: .top) {
+                            Text("Abilities")
+                                .bold()
+                                .frame(width: 100, alignment: .leading)
+                            VStack(alignment: .leading, spacing: 10) {
+                                ForEach(self.pokemonVM.abilities.indices) { ability in
+                                    Text("\(ability + 1). \(self.pokemonVM.abilities[ability].ability.name.capitalized)")
+                                }
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
             }
         }
     }
-}
-
-struct CustomCornerRadius: Shape {
-    
-    var corner: UIRectCorner
-    var radius: CGFloat
-    
-    func path(in rect: CGRect) -> Path {
-        
-        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corner, cornerRadii: CGSize(width: radius, height: radius))
-        
-        return Path(path.cgPath)
-    }
-    
 }
 
 struct AboutPokemonView_Previews: PreviewProvider {
