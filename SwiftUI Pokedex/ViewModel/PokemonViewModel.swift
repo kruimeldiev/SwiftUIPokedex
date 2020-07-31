@@ -11,6 +11,7 @@ import Foundation
 class PokemonViewModel: ObservableObject {
     
     @Published var pokemon = Pokemon(abilities: [],
+                                     base_experience: 0,
                                      height: 0,
                                      id: 0,
                                      name: "",
@@ -20,7 +21,11 @@ class PokemonViewModel: ObservableObject {
                                      types: [],
                                      weight: 0)
     
-    @Published var pokemonSpecie = PokemonSpecies(flavor_text_entries: [],
+    @Published var pokemonSpecie = PokemonSpecies(base_happiness: 0,
+                                                  capture_rate: 0,
+                                                  growth_rate: Growth_Rate(name: ""),
+                                                  habitat: Habitat(name: ""),
+                                                  flavor_text_entries: [],
                                                   genera: [])
     
     // De init zorgt ervoor dat de juiste pokemon data wordt gebruikt wanneer de PokemonViewModel wordt aangeroepen
@@ -31,6 +36,10 @@ class PokemonViewModel: ObservableObject {
     
     var abilities: [Ability] {
         return self.pokemon.abilities
+    }
+    
+    var base_experience: Int {
+        return self.pokemon.base_experience
     }
     
     var height: Int {

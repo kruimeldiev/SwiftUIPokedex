@@ -10,6 +10,7 @@ import Foundation
 
 struct Pokemon: Decodable {
     var abilities: [Ability]
+    var base_experience: Int
     var height: Int
     var id: Int
     var name: String
@@ -25,8 +26,20 @@ struct SpeciesURL: Decodable {
 }
 
 struct PokemonSpecies: Decodable {
+    var base_happiness: Int
+    var capture_rate: Int
+    var growth_rate: Growth_Rate
+    var habitat: Habitat
     var flavor_text_entries: [Specie_Flavor_Text]
     var genera: [Genera]
+}
+
+struct Growth_Rate: Decodable {
+    var name: String
+}
+
+struct Habitat: Decodable {
+    var name: String
 }
 
 struct Sprite: Decodable {

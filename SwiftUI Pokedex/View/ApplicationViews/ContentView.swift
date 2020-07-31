@@ -13,21 +13,27 @@ struct ContentView: View {
     @ObservedObject var pokedexViewModel = PokedexViewModel()
     
     @State private var pokemonZoekText = ""
+    @State private var zoekBalkActive = false
     
     var body: some View {
         
         NavigationView {
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 
                 Text("SwiftUI Pokédex")
                     .font(Font.system(size: 30, weight: .bold))
                     .padding(20)
                     .offset(x: 10)
                 
-                SearchBar(zoekText: $pokemonZoekText)
+                ZoekBalkNieuw(zoekText: $pokemonZoekText, isActive: $zoekBalkActive)
                     .accentColor(.blue)
                     
+                
+//                Deze oude zoekbalk heb ik er uit gehaald omdat deze minder flexibel is dan een zelf gecreëerde zoekbalk
+//                SearchBar(zoekText: $pokemonZoekText)
+//                    .accentColor(.blue)
+                
                 
                 ScrollView(showsIndicators: false) {
                     
@@ -37,11 +43,11 @@ struct ContentView: View {
                     }, id: \.self) { pokemon in
                         NavigationLink(destination: PokemonDetailView(pokemonVM: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url,
                                                                                                   specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"))) {
-                            PokemonCardView(pokemon: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url,
-                                                                      specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"),
-                                            pokedexEntry: self.pokedexViewModel.pokedex[pokemon],
-                                            pokemonID: pokemon.self + 1)
-                                                .padding(10)
+                                                                                                    PokemonCardView(pokemon: PokemonViewModel(pokemonURL: self.pokedexViewModel.pokedex[pokemon].url,
+                                                                                                                                              specieURL: "\(Constants.POKEMON_SPECIES_URL)\(pokemon.self + 1)"),
+                                                                                                                    pokedexEntry: self.pokedexViewModel.pokedex[pokemon],
+                                                                                                                    pokemonID: pokemon.self + 1)
+                                                                                                        .padding(10)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }

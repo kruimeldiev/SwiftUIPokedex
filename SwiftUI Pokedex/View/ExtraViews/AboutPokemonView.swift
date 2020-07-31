@@ -21,7 +21,7 @@ struct AboutPokemonView: View {
                 .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 10))
                 .shadow(color: Color.black.opacity(0.2), radius: 5)
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 25) {
                     
                     Text(pokemonVM.specieFlavorTextZoeken())
@@ -36,30 +36,61 @@ struct AboutPokemonView: View {
                         HStack {
                             Text("Soort")
                                 .bold()
-                                .frame(width: 100, alignment: .leading)
+                                .frame(width: 120, alignment: .leading)
                             Text(pokemonVM.specieGeneraZoeken())
                         }
                         HStack {
                             Text("Lengte")
                                 .bold()
-                                .frame(width: 100, alignment: .leading)
+                                .frame(width: 120, alignment: .leading)
                             Text("\(pokemonVM.height * 10) cm")
                         }
                         HStack {
                             Text("Gewicht")
                                 .bold()
-                                .frame(width: 100, alignment: .leading)
+                                .frame(width: 120, alignment: .leading)
                             Text("\(pokemonVM.weight / 10) kg")
                         }
                         HStack(alignment: .top) {
                             Text("Abilities")
                                 .bold()
-                                .frame(width: 100, alignment: .leading)
+                                .frame(width: 120, alignment: .leading)
                             VStack(alignment: .leading, spacing: 10) {
                                 ForEach(self.pokemonVM.abilities.indices) { ability in
                                     Text("\(ability + 1). \(self.pokemonVM.abilities[ability].ability.name.capitalized)")
                                 }
                             }
+                        }
+                    }
+                    
+                    Text("Training data:")
+                    .font(Font.system(.callout).bold())
+                    .foregroundColor(Color(self.pokemonVM.pokemonKleur))
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            Text("Vang kans")
+                                .bold()
+                                .frame(width: 120, alignment: .leading)
+                            Text("\(pokemonVM.pokemonSpecie.capture_rate)")
+                        }
+                        HStack {
+                            Text("Basis geluk")
+                                .bold()
+                                .frame(width: 120, alignment: .leading)
+                            Text("\(pokemonVM.pokemonSpecie.base_happiness)")
+                        }
+                        HStack {
+                            Text("Basis Exp.")
+                                .bold()
+                                .frame(width: 120, alignment: .leading)
+                            Text("\(pokemonVM.base_experience)")
+                        }
+                        HStack(alignment: .top) {
+                            Text("Groei snelheid")
+                                .bold()
+                                .frame(width: 120, alignment: .leading)
+                            Text(pokemonVM.pokemonSpecie.growth_rate.name.capitalized)
                         }
                     }
                     

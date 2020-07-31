@@ -23,7 +23,7 @@ struct StatView: View {
             
             VStack {
                 ForEach(0..<self.pokemonVM.stats.count, id: \.self) { stat in
-                    StatBarView(stat: self.pokemonVM.stats[stat])
+                    StatBar(stat: self.pokemonVM.stats[stat])
                 }
             }
         }

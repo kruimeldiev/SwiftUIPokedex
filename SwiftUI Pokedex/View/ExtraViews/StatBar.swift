@@ -1,5 +1,5 @@
 //
-//  StatBarView.swift
+//  StatBar.swift
 //  SwiftUI Pokedex
 //
 //  Created by Casper Daris on 22/07/2020.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct StatBarView: View {
+struct StatBar: View {
     
     var stat: Stat
     
@@ -49,6 +49,6 @@ struct StatBarView: View {
 
 struct StatBarView_Previews: PreviewProvider {
     static var previews: some View {
-        StatBarView(stat: Stat(base_stat: 50, stat: StatURL(name: "default", url: "default")))
+        StatBar(stat: Stat(base_stat: 50, stat: StatURL(name: "default", url: "default")))
     }
 }
