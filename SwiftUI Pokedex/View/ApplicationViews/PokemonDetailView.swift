@@ -28,30 +28,32 @@ struct PokemonDetailView: View {
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -400)
-                    .foregroundColor(Color.white.opacity(0.04))
+                    .foregroundColor(Color.white.opacity(0.06))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -320)
-                    .foregroundColor(Color.white.opacity(0.04))
+                    .foregroundColor(Color.white.opacity(0.06))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -240)
-                    .foregroundColor(Color.white.opacity(0.04))
+                    .foregroundColor(Color.white.opacity(0.06))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
                 Text(self.pokemonVM.name.uppercased())
                     .font(Font.system(size: 150, weight: .thin))
                     .offset(y: -160)
-                    .foregroundColor(Color.white.opacity(0.04))
+                    .foregroundColor(Color.white.opacity(0.06))
                     .fixedSize()
                     .frame(width: 50, height: 50, alignment: .center)
             }
             
             VStack {
+                
+                // Deze HStack bepaald de Sprite, Naam, ID en types
                 HStack {
                     ZStack {
                         SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default)
@@ -78,29 +80,16 @@ struct PokemonDetailView: View {
                 }
                 .offset(y: -20)
                 
+                // Deze HStack zijn de 'About' en 'Stats' Buttons
                 HStack {
                     Spacer()
                     Button(action: {
                         self.showingStatView = false
-                    }) {
-                        VStack {
-                            Text("About")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .shadow(radius: 1)
-                    }
+                        }) { Text("About") }.buttonStyle(DetailViewButton())
                     Spacer()
                     Button(action: {
                         self.showingStatView = true
-                    }) {
-                        VStack {
-                            Text("Stats")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .shadow(radius: 1)
-                    }
+                        }) { Text("Stats") }.buttonStyle(DetailViewButton())
                     Spacer()
                 }
                 

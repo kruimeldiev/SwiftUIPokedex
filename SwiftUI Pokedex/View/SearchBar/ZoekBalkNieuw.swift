@@ -24,12 +24,21 @@ struct ZoekBalkNieuw: View {
                     .padding()
                 
                 TextField("Zoek Pokémon", text: $zoekText)
-                    .frame(width: UIScreen.main.bounds.width - 100, height: 50)
+                    .frame(height: 50)
+                    
+                if !zoekText.isEmpty {
+                    Button(action: {
+                        self.zoekText = ""
+                    }) {Image(systemName: "multiply.circle")}
+                        .offset(x: -20)
+                }
             }
             .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
-            .shadow(color: Color.black.opacity(0.4), radius: 7, x: 0, y: 7)
-        
+            .frame(width: UIScreen.main.bounds.width - 80)
+            .padding()
+            //.shadow(color: Color.black.opacity(0.4), radius: 7, x: 0, y: 7)
+            
         }
         .animation(.default)
     }

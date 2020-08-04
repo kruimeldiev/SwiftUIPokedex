@@ -28,7 +28,6 @@ struct ContentView: View {
                 
                 ZoekBalkNieuw(zoekText: $pokemonZoekText, isActive: $zoekBalkActive)
                     .accentColor(.blue)
-                    
                 
 //                Deze oude zoekbalk heb ik er uit gehaald omdat deze minder flexibel is dan een zelf gecreëerde zoekbalk
 //                SearchBar(zoekText: $pokemonZoekText)
