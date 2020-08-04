@@ -16,42 +16,46 @@ struct PokemonDetailView: View {
     
     var body: some View {
         
-        ZStack {
+        VStack {
             
-            // De achtergrondkleur wordt bepaald door de eerste Type van de pokemon
-            LinearGradient(gradient: Gradient(colors: [Color(self.pokemonVM.pokemonKleur), .white]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .hueRotation(.degrees(10))
-                .edgesIgnoringSafeArea(.all)
-            
-            // Deze VStack zorgt voor de text (pokemon naam) die op de achtergrond staat
-            VStack {
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -400)
-                    .foregroundColor(Color.white.opacity(0.04))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -320)
-                    .foregroundColor(Color.white.opacity(0.04))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -240)
-                    .foregroundColor(Color.white.opacity(0.04))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -160)
-                    .foregroundColor(Color.white.opacity(0.04))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-            }
-            
-            VStack {
+            ZStack {
+                
+                LinearGradient(gradient: Gradient(colors: [Color(self.pokemonVM.pokemonKleur), Color(self.pokemonVM.pokemonKleur).opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .hueRotation(.degrees(10))
+                    .clipShape(CustomCornerRadius(corner: [.bottomLeft, .bottomRight], radius: 10))
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 4)
+                    .shadow(color: Color(self.pokemonVM.pokemonKleur).opacity(0.7), radius: 5, x: 0, y: 5)
+                
+                // Deze VStack zorgt voor de text (pokemon naam) die op de achtergrond staat
+                VStack {
+                    Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(x: 40, y: -210)
+                        .foregroundColor(Color.white.opacity(0.04))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                    Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(x: -40, y: -140)
+                        .foregroundColor(Color.white.opacity(0.04))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                    Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(x: 40, y: -70)
+                        .foregroundColor(Color.white.opacity(0.04))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                    Text(self.pokemonVM.name.uppercased())
+                        .font(Font.system(size: 150, weight: .thin))
+                        .offset(x: -40)
+                        .foregroundColor(Color.white.opacity(0.04))
+                        .fixedSize()
+                        .frame(width: 50, height: 50, alignment: .center)
+                }
+                
+                // Deze HStack regelt de Sprite, naam, ID en Types van de Pokémon
                 HStack {
                     ZStack {
                         SpriteView(pokemonSpriteURL: pokemonVM.sprites.front_default)
@@ -77,43 +81,40 @@ struct PokemonDetailView: View {
                     }
                 }
                 .offset(y: -20)
-                
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.showingStatView = false
-                    }) {
-                        VStack {
-                            Text("About")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .shadow(radius: 1)
-                    }
-                    Spacer()
-                    Button(action: {
-                        self.showingStatView = true
-                    }) {
-                        VStack {
-                            Text("Stats")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .shadow(radius: 1)
-                    }
-                    Spacer()
-                }
-                
-                if self.showingStatView {
-                    StatView(pokemonVM: self.pokemonVM)
-                        .frame(minWidth: 20, idealWidth: .infinity, maxWidth: .infinity, minHeight: 400, idealHeight: .infinity, maxHeight: .infinity)
-                        .edgesIgnoringSafeArea(.all)
-                } else {
-                    AboutPokemonView(pokemonVM: pokemonVM)
-                        .frame(minWidth: 20, idealWidth: .infinity, maxWidth: .infinity, minHeight: 400, idealHeight: .infinity, maxHeight: .infinity)
-                        .edgesIgnoringSafeArea(.all)
-                }
             }
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.showingStatView = false
+                }) {
+                    VStack {
+                        Text("About")
+                            .font(.title)
+                        .bold()
+                            .foregroundColor(Color(self.pokemonVM.pokemonKleur))
+                    }
+                }
+                Spacer()
+                Button(action: {
+                    self.showingStatView = true
+                }) {
+                    VStack {
+                        Text("Stats")
+                            .font(.title)
+                            .foregroundColor(Color(self.pokemonVM.pokemonKleur))
+                    }
+                }
+                Spacer()
+            }
+            .padding(.top)
+            
+            if self.showingStatView == true {
+                StatView(pokemonVM: self.pokemonVM)
+            } else {
+                AboutPokemonView(pokemonVM: self.pokemonVM)
+            }
+            
         }
     }
 }

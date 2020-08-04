@@ -16,13 +16,8 @@ struct AboutPokemonView: View {
         
         ZStack {
             
-            Rectangle()
-                .foregroundColor(Color(.white))
-                .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 10))
-                .shadow(color: Color.black.opacity(0.2), radius: 5)
-            
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 25) {
+                VStack(alignment: .leading, spacing: 30) {
                     
                     Text(pokemonVM.specieFlavorTextZoeken())
                         .multilineTextAlignment(.leading)

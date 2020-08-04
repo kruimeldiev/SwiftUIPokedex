@@ -90,6 +90,8 @@
 				AF28844424C36D4E00FB48C8 /* ContentView.swift */,
 				AF70287224C3AAE4004E01C6 /* PokemonCardView.swift */,
 				AF662FC924C6FBA400E481CB /* PokemonDetailView.swift */,
+				AF11DD8524CE377B00D39D97 /* StatView.swift */,
+				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
 			);
 			path = ApplicationViews;
 			sourceTree = "<group>";
@@ -109,8 +111,6 @@
 				AF4337E224C8A1F800A59198 /* TypeView.swift */,
 				AF023DC324D2B1E600A28AF8 /* CustomCornerRadius.swift */,
 				AF4337E424C8D3DB00A59198 /* StatBar.swift */,
-				AF11DD8524CE377B00D39D97 /* StatView.swift */,
-				AFB36A1324CAFEAA00369731 /* AboutPokemonView.swift */,
 			);
 			path = ExtraViews;
 			sourceTree = "<group>";
