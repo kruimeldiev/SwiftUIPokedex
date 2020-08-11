@@ -71,7 +71,7 @@ struct PokemonDetailView: View {
                         self.showingStatView = true
                     }) { DetailViewButton(knopText: "Stats", ingedrukt: showingStatView) }
                     Spacer()
-                }.animation(.default)
+                }.animation(.easeInOut)
                 
                 if self.showingStatView {
                     StatView(pokemonVM: self.pokemonVM)

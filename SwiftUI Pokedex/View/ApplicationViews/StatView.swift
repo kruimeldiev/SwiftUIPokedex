@@ -14,6 +14,7 @@ struct StatView: View {
     
     var body: some View {
         
+        
         ZStack {
             
             Rectangle()
@@ -21,9 +22,20 @@ struct StatView: View {
                 .clipShape(CustomCornerRadius(corner: [.topLeft, .topRight], radius: 10))
                 .shadow(color: Color.black.opacity(0.2), radius: 5)
             
-            VStack {
-                ForEach(0..<self.pokemonVM.stats.count, id: \.self) { stat in
-                    StatBar(stat: self.pokemonVM.stats[stat])
+            ScrollView(showsIndicators: false) {
+                
+                VStack (alignment: .leading, spacing: 25){
+                    
+                    Text("Basis statistieken:")
+                        .font(Font.system(.callout).bold())
+                        .foregroundColor(Color(self.pokemonVM.pokemonKleur))
+                        .padding(.top, 20)
+                    
+                    VStack (alignment: .leading, spacing: 40){
+                        ForEach(0..<self.pokemonVM.stats.count, id: \.self) { stat in
+                            StatBar(stat: self.pokemonVM.stats[stat], pokemonKleur: self.pokemonVM.pokemonKleur)
+                        }
+                    }
                 }
             }
         }

@@ -23,15 +23,11 @@ struct DetailViewButton: View {
                     .frame(width: 50, height: 50)
                     .blur(radius: 1)
                     .opacity(0.1)
-                Text(knopText)
-                    .foregroundColor(.white)
-                    .font(Font.system(size: 25, weight: .bold))
-            } else {
-                Text(knopText)
-                    .foregroundColor(.white)
-                    .font(Font.system(size: 25, weight: .bold))
-                    .opacity(0.5)
             }
+            
+            Text(knopText)
+                .foregroundColor(ingedrukt ? Color.white : Color.white.opacity(0.5)).animation(.easeInOut)
+                .font(Font.system(size: 25, weight: .bold))
         }
     }
 }

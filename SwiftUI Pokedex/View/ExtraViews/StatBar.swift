@@ -11,26 +11,31 @@ import SwiftUI
 struct StatBar: View {
     
     var stat: Stat
+    var pokemonKleur: String
     
     var body: some View {
         
         HStack {
             
             Text(self.getStatName(stat: self.stat))
+                .bold()
+                .frame(width: 100, alignment: .leading)
             
             ZStack (alignment: .leading) {
                 
                 Rectangle()
-                    .frame(width: 200, height: 10)
+                    .frame(width: 180, height: 20)
                     .cornerRadius(10)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color.gray.opacity(0.1))
                 
                 Rectangle()
-                    .frame(width: CGFloat(stat.base_stat), height: 10)
+                    .frame(width: CGFloat(stat.base_stat), height: 20)
                     .cornerRadius(10)
-                    .foregroundColor(Color.red)
-                
+                    .foregroundColor(Color(pokemonKleur))
             }
+            
+            Text("\(stat.base_stat)")
+            
         }
     }
     
@@ -44,11 +49,5 @@ struct StatBar: View {
         case "speed": return "Speed"
         default: return "Error"
         }
-    }
-}
-
-struct StatBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatBar(stat: Stat(base_stat: 50, stat: StatURL(name: "default", url: "default")))
     }
 }
