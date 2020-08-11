@@ -24,32 +24,12 @@ struct PokemonDetailView: View {
                 .edgesIgnoringSafeArea(.all)
             
             // Deze VStack zorgt voor de text (pokemon naam) die op de achtergrond staat
-            VStack {
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -400)
-                    .foregroundColor(Color.white.opacity(0.06))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -320)
-                    .foregroundColor(Color.white.opacity(0.06))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -240)
-                    .foregroundColor(Color.white.opacity(0.06))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-                Text(self.pokemonVM.name.uppercased())
-                    .font(Font.system(size: 150, weight: .thin))
-                    .offset(y: -160)
-                    .foregroundColor(Color.white.opacity(0.06))
-                    .fixedSize()
-                    .frame(width: 50, height: 50, alignment: .center)
-            }
+            Text(self.pokemonVM.name.uppercased())
+                .font(Font.system(size: 150, weight: .black))
+                .offset(y: -380)
+                .foregroundColor(Color.white.opacity(0.06))
+                .fixedSize()
+                .frame(width: 50, height: 50, alignment: .center)
             
             VStack {
                 
@@ -78,20 +58,20 @@ struct PokemonDetailView: View {
                         }
                     }
                 }
-                .offset(y: -20)
+                    .offset(y: -20)
                 
                 // Deze HStack zijn de 'About' en 'Stats' Buttons
                 HStack {
                     Spacer()
                     Button(action: {
                         self.showingStatView = false
-                        }) { Text("About") }.buttonStyle(DetailViewButton())
+                    }) { DetailViewButton(knopText: "About", ingedrukt: !showingStatView) }
                     Spacer()
                     Button(action: {
                         self.showingStatView = true
-                        }) { Text("Stats") }.buttonStyle(DetailViewButton())
+                    }) { DetailViewButton(knopText: "Stats", ingedrukt: showingStatView) }
                     Spacer()
-                }
+                }.animation(.default)
                 
                 if self.showingStatView {
                     StatView(pokemonVM: self.pokemonVM)
